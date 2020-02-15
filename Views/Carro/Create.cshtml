@@ -1,0 +1,69 @@
+﻿@model ProjetoAlugar.Models.Carro
+
+@{
+    ViewData["Title"] = "Novo Carro";
+}
+
+<div class="row">
+    <div class="col-md-10">
+        <form asp-action="Create" enctype="multipart/form-data">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label asp-for="Nome" class="control-label"></label>
+                        <input asp-for="Nome" class="form-control" />
+                        <span asp-validation-for="Nome" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label asp-for="Marca" class="control-label"></label>
+                        <input asp-for="Marca" class="form-control" />
+                        <span asp-validation-for="Marca" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label asp-for="PrecoDiaria" class="control-label"></label>
+                        <input asp-for="PrecoDiaria" class="form-control" />
+                        <span asp-validation-for="PrecoDiaria" class="text-danger"></span>
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <img name="arquivo" id="arquivo" src="#" height="150" width="200" class="border border-secondary" />
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Foto" class="control-label"></label>
+                        <input asp-for="Foto" type="file" class="form-control-file" name="arquivo" id="arquivo" onchange="CarregarImagem(this)" />
+                        <span asp-validation-for="Foto" class="text-danger"></span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group float-right">
+                <input type="submit" value="Salvar" class="btn btn-outline-success" />
+                <a asp-action="Index" class="btn btn-outline-secondary">voltar</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+
+    <script>
+        function CarregarImagem(input) {
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+
+                reader.onload = function (e) {
+                    $("#arquivo").attr('src', e.target.result).width(200).height(150);
+                }
+            }
+
+            reader.readAsDataURL(input.files[0]);
+        }
+    </script>
+}

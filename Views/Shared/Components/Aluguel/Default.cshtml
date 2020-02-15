@@ -1,0 +1,23 @@
+﻿@model ProjetoAlugar.Models.Carro
+
+    <div class="jumbotron">
+        <div class="row">
+            <div class="col-6">
+                <img src="@Url.Content(Model.Foto)" height="150" width="200" />
+            </div>
+
+            <div class="col-6">
+                <div class="col-4">
+                    <h3><strong>Marca: </strong>@Model.Marca</h3>
+                </div>
+
+                <div class="col-4">
+                    <h3><strong>Nome: </strong>@Model.Nome</h3>
+                </div>
+
+                <div class="col-4">
+                    <h3><strong>Preço Diária: </strong>@Model.PrecoDiaria</h3>
+                </div>
+            </div>
+        </div>
+    </div>
