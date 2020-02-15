@@ -9,9 +9,13 @@
     <div class="card-header bg-light">
         <h4>
             Carros
-            <a asp-action="Create" class="btn btn-outline-primary float-right" data-toggle="tooltip" data-placement="right" title="Novo carro">
-                <i class="fa fa-money"></i>
-            </a>
+
+            @if (User.IsInRole("Administrador"))
+            {
+                <a asp-action="Create" class="btn btn-outline-primary float-right" data-toggle="tooltip" data-placement="right" title="Novo carro">
+                    <i class="fa fa-money"></i>
+                </a>
+            }
         </h4>
     </div>
     <div class="card-body">
@@ -33,13 +37,16 @@
                             </p>
 
                             <div class="text-center">
-                                <a asp-action="Edit" asp-route-id="@item.CarroId" class="btn btn-outline-warning" data-toggle="tooltip" data-placement="right" title="Atualizar carro">
-                                    <i class="fa fa-pencil-square-o"></i>
-                                </a>
+                                @if (User.IsInRole("Administrador"))
+                                {
+                                    <a asp-action="Edit" asp-route-id="@item.CarroId" class="btn btn-outline-warning" data-toggle="tooltip" data-placement="right" title="Atualizar carro">
+                                        <i class="fa fa-pencil-square-o"></i>
+                                    </a>
 
-                                <a onclick="ConfirmarExclusao('@item.CarroId', '@item.Nome', '@controller')" class="btn btn-outline-danger" data-toggle="tooltip" data-placement="right" title="Excluir carro">
-                                    <i class="fa fa-trash-o"></i>
-                                </a>
+                                    <a onclick="ConfirmarExclusao('@item.CarroId', '@item.Nome', '@controller')" class="btn btn-outline-danger" data-toggle="tooltip" data-placement="right" title="Excluir carro">
+                                        <i class="fa fa-trash-o"></i>
+                                    </a>
+                                }
 
                                 <a asp-action="Aluguel" asp-controller="Aluguel" asp-route-CarroId="@item.CarroId" asp-route-PrecoDiaria="@item.PrecoDiaria" class="btn btn-outline-primary" data-toggle="tooltip" data-placement="right" title="Alugar veículo">
                                     <i class="fa fa-pencil-square-o"></i>

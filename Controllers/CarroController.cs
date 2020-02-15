@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -14,6 +15,7 @@ using ProjetoAlugar.Models;
 
 namespace ProjetoAlugar.Controllers
 {
+    [Authorize]
     public class CarroController : Controller
     {
         private readonly ICarro _carroRepositorio;

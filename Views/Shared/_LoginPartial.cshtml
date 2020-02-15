@@ -9,8 +9,11 @@
         <a href="#">Olá, @UserManager.GetUserName(User)</a>
         <a asp-action="Index" asp-controller="Usuario">Meus Dados</a>
         <a asp-action="Index" asp-controller="Carro">Carros</a>
-        <a asp-action="Index" asp-controller="NivelAcesso">Nível de Acesso</a>
-        <a asp-action="Index" asp-controller="Conta">Saldo</a>
+        @if (User.IsInRole("Administrador"))
+        {
+            <a asp-action="Index" asp-controller="NivelAcesso">Nível de Acesso</a>
+            <a asp-action="Index" asp-controller="Conta">Saldo</a>
+        }
         <a asp-action="Sair" asp-controller="Usuario">Sair</a>
     </div>
 }

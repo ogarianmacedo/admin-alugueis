@@ -8,6 +8,7 @@ using Microsoft.Extensions.DependencyInjection;
 using ProjetoAlugar.Interfaces;
 using ProjetoAlugar.Models;
 using ProjetoAlugar.Repositorios;
+using ProjetoAlugar.Servicos;
 using System;
 
 namespace ProjetoAlugar
@@ -52,6 +53,9 @@ namespace ProjetoAlugar
             services.AddScoped<IConta, ContaRepository>();
             services.AddScoped<ICarro, CarroRepository>();
             services.AddScoped<IAluguel, AluguelRepository>();
+
+            services.Configure<ConfiguracaoEmail>(Configuration.GetSection("ConfiguracaoEmail"));
+            services.AddScoped<IEmail, Email>();
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
         }

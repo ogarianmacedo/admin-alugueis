@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
@@ -11,6 +12,7 @@ using ProjetoAlugar.ViewsModels;
 
 namespace ProjetoAlugar.Controllers
 {
+    [Authorize]
     public class UsuarioController : Controller
     {
         private readonly IUsuario _usuarioRepositorio;
@@ -25,6 +27,7 @@ namespace ProjetoAlugar.Controllers
             return View(await _usuarioRepositorio.BuscarUsuarioLogado(User));
         }
 
+        [AllowAnonymous]
         public async Task<IActionResult> Cadastro()
         {
             if (User.Identity.IsAuthenticated)
@@ -35,6 +38,7 @@ namespace ProjetoAlugar.Controllers
             return View();
         }
 
+        [AllowAnonymous]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Cadastrar(RegistroViewModel registro)
@@ -55,7 +59,7 @@ namespace ProjetoAlugar.Controllers
 
                 if (resultado.Succeeded)
                 {
-                    var nivelAcesso = "Cliente";
+                    var nivelAcesso = "Administrador";
                     await _usuarioRepositorio.AtribuirNivelAcesso(usuario, nivelAcesso);
                     await _usuarioRepositorio.EfetuarLogin(usuario, false);
                     return RedirectToAction("Index", "Usuario");
@@ -72,6 +76,7 @@ namespace ProjetoAlugar.Controllers
             return View("Cadastro", registro);
         }
 
+        [AllowAnonymous]
         public async Task<IActionResult> Login()
         {
             if (User.Identity.IsAuthenticated)
@@ -82,6 +87,7 @@ namespace ProjetoAlugar.Controllers
             return View();
         }
 
+        [AllowAnonymous]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Login(LoginViewModel login)
