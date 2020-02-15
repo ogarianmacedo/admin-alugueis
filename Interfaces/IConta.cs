@@ -10,5 +10,6 @@ namespace ProjetoAlugar.Interfaces
     {
         new Task<IEnumerable<Conta>> BuscarTodas();
         int BuscarSaldoPeloId(string Id);
+        Task<Conta> BuscarSaldoPeloUsuarioId(string id);
     }
 }

@@ -67,7 +67,7 @@ namespace ProjetoAlugar.Controllers
 
                     await _aluguelRepositorio.Inserir(a);
 
-                    var saldoUsuario = await _contaRepositorio.BuscarPeloId(usuario.Id);
+                    var saldoUsuario = await _contaRepositorio.BuscarSaldoPeloUsuarioId(usuario.Id);
                     saldoUsuario.Saldo = saldoUsuario.Saldo - aluguel.PrecoTotal;
                     await _contaRepositorio.Atualizar(saldoUsuario);
 
@@ -75,7 +75,7 @@ namespace ProjetoAlugar.Controllers
                 }
             }
 
-            return View(aluguel);
+            return View("Aluguel", aluguel);
         }
     }
 }

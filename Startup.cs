@@ -51,6 +51,7 @@ namespace ProjetoAlugar
             services.AddScoped<IEndereco, EnderecoRepository>();
             services.AddScoped<IConta, ContaRepository>();
             services.AddScoped<ICarro, CarroRepository>();
+            services.AddScoped<IAluguel, AluguelRepository>();
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
         }

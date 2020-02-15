@@ -1,0 +1,17 @@
+﻿@model IEnumerable<ProjetoAlugar.Models.Aluguel>
+
+<div class="row">
+    @foreach (var item in Model)
+    {
+        <div class="col-4">
+            <div class="card">
+                <img src="@Url.Content(item.Carro.Foto)" class="card-img-top img-fluid" />
+                <div class="card-body">
+                    <h6 class="card-title">@item.Carro.Marca - @item.Carro.Nome</h6>
+                    <h6>@item.Inicio - @item.Fim</h6>
+                    <h5 class="text-center"><span class="badge badge-success">Valor Total: @item.PrecoTotal</span></h5>
+                </div>
+            </div>
+        </div>
+    }
+</div>
