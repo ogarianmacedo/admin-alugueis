@@ -120,6 +120,5 @@ namespace ProjetoAlugar.Controllers
             await _carroRepositorio.Excluir(id);
             return Json("Carro excluído com sucesso");
         }
-
     }
 }

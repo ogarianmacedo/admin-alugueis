@@ -9,14 +9,14 @@ using ProjetoAlugar.Models;
 namespace ProjetoAlugar.Migrations
 {
     [DbContext(typeof(Contexto))]
-    [Migration("20200118235053_criacaoBD")]
-    partial class criacaoBD
+    [Migration("20210620225308_InitialCreate")]
+    partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "2.1.11-servicing-32099")
+                .HasAnnotation("ProductVersion", "2.1.14-servicing-32113")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 

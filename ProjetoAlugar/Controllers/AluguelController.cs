@@ -74,7 +74,7 @@ namespace ProjetoAlugar.Controllers
                     //Enviar E-mail
                     string assunto = "Reserva concluída com sucesso";
                     string mensagem = string.Format("Seu veículo já o aguarda. Você poderá pegá-lo dia {0} e deverá devolvê-lo dia {1}. O preço será R${2},00. Divirtá-se !!! ", aluguel.Inicio, aluguel.Fim, aluguel.PrecoTotal);
-                    await _email.EnviarEmail(usuario.Email, assunto, mensagem);
+                    //await _email.EnviarEmail(usuario.Email, assunto, mensagem);
 
                     //Insere aluguel no banco
                     await _aluguelRepositorio.Inserir(a);

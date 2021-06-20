@@ -6,7 +6,7 @@
 @if (SignInManager.IsSignedIn(User))
 {
     <div class="sidenav">
-        <a href="#">Olá, @UserManager.GetUserName(User)</a>
+        <a asp-action="Index" asp-controller="Usuario">Olá, @UserManager.GetUserName(User)</a>
         <a asp-action="Index" asp-controller="Usuario">Meus Dados</a>
         <a asp-action="Index" asp-controller="Carro">Carros</a>
         @if (User.IsInRole("Administrador"))

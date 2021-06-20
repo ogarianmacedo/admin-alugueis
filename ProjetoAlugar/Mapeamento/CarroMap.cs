@@ -13,7 +13,6 @@ namespace ProjetoAlugar.Mapeamento
         public void Configure(EntityTypeBuilder<Carro> builder)
         {
             builder.HasKey(c => c.CarroId);
-
             builder.Property(c => c.Nome).IsRequired().HasMaxLength(200);
             builder.Property(c => c.Marca).IsRequired().HasMaxLength(200);
             builder.Property(c => c.Foto).IsRequired();

@@ -3,10 +3,9 @@
 @{
     ViewData["Title"] = "Novo Endereço";
 }
-
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="Create">
+<form asp-action="Create">
+    <div class="row">
+        <div class="col-md-4 offset-md-1">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
 
             <div class="form-group">
@@ -26,7 +25,9 @@
                 <input asp-for="Bairro" class="form-control" />
                 <span asp-validation-for="Bairro" class="text-danger"></span>
             </div>
+        </div>
 
+        <div class="col-md-4">
             <div class="form-group">
                 <label asp-for="Cidade" class="control-label">Cidade</label>
                 <input asp-for="Cidade" class="form-control" />
@@ -39,15 +40,16 @@
                 <span asp-validation-for="Estado" class="text-danger"></span>
             </div>
 
-            <input asp-for="UsuarioId" type="hidden"/>
+            <input asp-for="UsuarioId" type="hidden" />
 
+            <br />
             <div class="form-group float-right">
                 <input type="submit" value="Salvar" class="btn btn-outline-success" />
                 <a asp-action="Index" asp-controller="Usuario" class="btn btn-outline-secondary">voltar</a>
             </div>
-        </form>
+        </div>
     </div>
-</div>
+</form>
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}

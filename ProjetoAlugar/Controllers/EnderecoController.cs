@@ -82,6 +82,5 @@ namespace ProjetoAlugar.Controllers
             await _enderecoRepositorio.Excluir(id);
             return Json("Endereço excluído");
         }
-
     }
 }

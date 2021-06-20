@@ -38,6 +38,7 @@ namespace ProjetoAlugar.Repositorios
         {
             await _gerenciadorUsuario.AddToRoleAsync(usuario, nivelAcesso);
         }
+
         public async Task EfetuarLogin(Usuario usuario, bool lembrar)
         {
             await _gerenciadorLogin.SignInAsync(usuario, lembrar);
@@ -57,6 +58,5 @@ namespace ProjetoAlugar.Repositorios
         {
             await _gerenciadorUsuario.UpdateAsync(usuario);
         }
-       
     }
 }

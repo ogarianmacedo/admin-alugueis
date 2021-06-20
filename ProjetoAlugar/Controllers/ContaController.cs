@@ -83,6 +83,5 @@ namespace ProjetoAlugar.Controllers
             ViewData["UsuarioId"] = new SelectList(await _contaRepositorio.BuscarTodas(), "Id", "Email", conta.UsuarioId);
             return View(conta);
         }
-       
     }
 }

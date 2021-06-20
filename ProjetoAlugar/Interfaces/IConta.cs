@@ -9,7 +9,9 @@ namespace ProjetoAlugar.Interfaces
     public interface IConta : IRepositorioGenerico<Conta>
     {
         new Task<IEnumerable<Conta>> BuscarTodas();
+
         int BuscarSaldoPeloId(string Id);
+
         Task<Conta> BuscarSaldoPeloUsuarioId(string id);
     }
 }

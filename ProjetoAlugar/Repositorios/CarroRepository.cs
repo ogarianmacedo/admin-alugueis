@@ -12,6 +12,5 @@ namespace ProjetoAlugar.Repositorios
         public CarroRepository(Contexto contexto) : base(contexto)
         {
         }
-
     }
 }
